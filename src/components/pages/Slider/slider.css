@@ -1,0 +1,235 @@
+.container {
+  width: 100%;
+  height: 50%;
+}
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 5px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.card-slider {
+  width: 100%;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.card-slider .card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.card-slider .card-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/* l'effet des image qui monte en haut */
+.card-slider:hover img {
+  opacity: 0.7;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.card-slider:hover .card-image {
+  -webkit-transform: translateY(-100px);
+  transform: translateY(-100px);
+  -webkit-transition: all 0.9s;
+  transition: all 0.9s;
+}
+
+.details {
+  position: absolute;
+  bottom: 400px;
+  left: 0;
+  background: #0f4c64;
+  width: 100%;
+  height: 120px;
+  z-index: 1;
+  padding: 10px;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.details h2 {
+  margin: 30px 0;
+  padding: 0;
+  text-align: center;
+  color: white;
+}
+
+.details h2 .sub-title {
+  font-size: 16px;
+  line-height: 2;
+  color: #dcb21b;
+  font-weight: 300;
+  display: block;
+}
+
+.card-slider:hover .details {
+  bottom: 0;
+}
+
+.carousel .slick-dots {
+  bottom: -2.5vw;
+}
+
+.carousel .slick-dots li button {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #0f4c64;
+  border-radius: 20px;
+}
+
+.carousel .slick-dots li button:before {
+  position: absolute;
+  top: auto;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  content: "";
+  text-align: center;
+  opacity: 0.5;
+  background-color: #0f4c64;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.carousel .slick-dots li.slick-active button,
+.carousel .slick-dots li:hover button {
+  border-color: #dcb21b;
+}
+
+.carousel .slick-dots li.slick-active button:before,
+.carousel .slick-dots li:hover button:before {
+  background-color: #dcb21b;
+  opacity: 1;
+}
+
+.carousel .slick-prev,
+.carousel .slick-next {
+  width: 30px;
+  height: 30px;
+  background-color: #0f4c64;
+}
+
+.carousel .slick-prev:before,
+.carousel .slick-next:before {
+  color: #dcb21b;
+}
+
+.carousel .slick-next {
+  right: -55px;
+}
+
+.carousel .slick-prev {
+  left: -55px;
+}
+
+@media screen and (max-width: 767px) {
+  .card-wrapper {
+    position: relative;
+    width: 100%;
+    height: 185px;
+    padding: 0 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .card-slider {
+    width: 100%;
+    height: 150px;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .card-slider.card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: white;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  .card-slider .card-image img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  /* l'effet des image qui monte en haut */
+  .card-slider:hover img {
+    opacity: 0.7;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  .card-slider:hover .card-image {
+    -webkit-transform: translateY(-50px);
+    transform: translateY(-50px);
+    -webkit-transition: all 0.9s;
+    transition: all 0.9s;
+  }
+  .details {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    background: #0f4c64;
+    width: 100%;
+    height: 50px;
+    z-index: 1;
+    padding: 5px;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
+  }
+
+  .details h2 {
+    margin: 0px 0;
+    padding: 0;
+    text-align: center;
+    color: white;
+    font-size: 10px;
+  }
+
+  .details h2 .sub-title {
+    font-size: 10px;
+    line-height: 1rem;
+    color: #dcb21b;
+    font-weight: 300;
+    display: block;
+  }
+
+  .carousel .slick-dots {
+    bottom: -2.5vw;
+  }
+}
+.carousel .slick-next {
+  right: -10px;
+}
+
+.carousel .slick-prev {
+  left: -10px;
+}

@@ -1,0 +1,148 @@
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  /*position: fixed;*/
+  width: 100%;
+  min-height: 80px;
+  padding: 1.2rem;
+  background-color: #0f4c64;
+  color: white;
+  margin-bottom: 50px;
+}
+.navbar_logo {
+  color: #dcb21b;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Indie Flower", cursive;
+}
+.navbar_link:hover {
+  text-decoration: none;
+  color: white;
+}
+/* pour les liens */
+.navbar_links {
+  display: flex;
+  text-decoration: none;
+  font-weight: 600;
+}
+/*pour chaque lien*/
+.navbar_link {
+  padding: 0 0.5rem;
+  color: inherit;
+}
+/*pour le burger*/
+.navbar_burger {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  display: none;
+}
+/*pour la partie mobile*/
+@media screen and (max-width: 767px) {
+  .navbar_links {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: -100vw;
+    bottom: 0;
+    width: 0;
+    height: 100vh;
+    padding: 2rem;
+    visibility: hidden;
+    background-color: black;
+    transition: all 0.8s ease-out;
+  }
+  .navbar > button {
+    padding: 0px;
+  }
+  .show-nav .navbar_links {
+    right: 0;
+    width: 100vw;
+    position: relative;
+    visibility: visible;
+  }
+  /*ici c'est pour faire l'effet des petit très en bas de chaque menu*/
+  .navbar_item::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 3vw;
+    height: 1px;
+    background: white;
+  }
+  .navbar_item:last-child::after {
+    display: none;
+  }
+  .navbar_link {
+    display: block;
+    padding: 1.5rem;
+    font-size: 5vw;
+  }
+  .navbar_burger {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    margin: 10px;
+  }
+  .navbar_burger:hover {
+    cursor: pointer;
+  }
+  .burger_bar,
+  .burger_bar::before,
+  .burger_bar::after {
+    display: block;
+    width: 40px;
+    height: 3px;
+    position: relative;
+    border-radius: 3px;
+    background-color: white;
+    transition: all 0.5s ease-in-out;
+  }
+  .burger_bar::before,
+  .burger_bar::after {
+    content: "";
+    position: absolute;
+    left: 1;
+  }
+  .burger_bar::before {
+    transform: translateY(-12px);
+  }
+
+  .burger_bar::after {
+    transform: translateY(12px);
+  }
+  .show-nav .burger_bar {
+    width: 0;
+    background: transparent;
+  }
+  /*ici on  transformer le burger en croix*/
+  .show-nav .burger_bar::before {
+    transform: rotate(45deg);
+  }
+  .show-nav .burger_bar::after {
+    transform: rotate(-45deg);
+  }
+  /*ici c'est pour  burger button animation*/
+  .navbar_item {
+    /*ici c'est masquer par default*/
+    transform: translateY(100vh);
+  }
+  .show-nav .navbar_item {
+    transform: translateY(0vh);
+  }
+  .show-nav .slideInDown-1 {
+    transition: all 1s ease-out;
+  }
+  .show-nav .slideInDown-2 {
+    transition: all 1.1s ease-out;
+  }
+  .show-nav .slideInDown-3 {
+    transition: all 1.2s ease-out;
+  }
+}
