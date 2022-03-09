@@ -1,0 +1,25 @@
+header {
+  text-align: center;
+  background-color: #0f4c64;
+  color: white;
+  filter: drop-shadow(10px 10px 4px #dcb21b);
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  width: 100%;
+}
+header h1 {
+  margin: 0;
+}
+header h1 > span {
+  color: #dcb21b;
+}
+
+@media screen and (max-width: 767px) {
+  header {
+    width: 100%;
+    margin-top: -26px;
+  }
+  header h1 {
+    font-size: 1.3em;
+  }
+}

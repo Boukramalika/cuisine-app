@@ -1,0 +1,94 @@
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Roboto", sans-serif;
+  color: #212121;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  filter: drop-shadow(10px 10px 4px #0f4c64);
+  border-radius: 30px;
+  padding: auto;
+}
+
+.card {
+  flex: 0 1 500px;
+  min-height: 500px;
+  /*border: 5px solid lightblue;*/
+  margin: 20px 15px;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+}
+.card:hover img {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.card:hover .image {
+  width: 100%;
+  height: 300px;
+}
+
+.image {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 2px 2px 0 0;
+}
+.image img {
+  width: 100%;
+  transform: translateY(-11%);
+}
+
+.recette {
+  padding: 0 20px;
+}
+
+.recette .liste-ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 5px 20px;
+  background-color: #0f4c64;
+  color: white;
+  transform: scale(1.12);
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(10px 10px 4px #dcb21b);
+  margin-bottom: 20px;
+}
+.recette .liste-ingredients li {
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+ul.liste-ingredients {
+  list-style-type: circle;
+}
+.recette ul {
+  padding: 10px 0px 10px 20px;
+}
+.recette ol li {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: #eceff1;
+  padding: 0 0 10px 0;
+  box-shadow: 0px -3px 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+@media all and (max-width: 767px) {
+  h1 {
+    font-size: 1.3em;
+  }
+  .card {
+    margin: 0px;
+    width: 100%;
+  }
+}
