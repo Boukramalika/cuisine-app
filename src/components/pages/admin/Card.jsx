@@ -1,6 +1,7 @@
 import React  from 'react'
 import "../../../appAdmin.css";
 
+//ici on a importer les props details
 const Card = ({details}) =>{
 
     //ici pour ameliorer l'affichage de mes ingredients et instruction ona utilisé  les methodes suivants:

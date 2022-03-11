@@ -2,17 +2,78 @@ import React, { Component } from 'react'
 
 import AjouterRecette from './AjouterRecette'
 import AdminForm from './AdminForm'
+import Login from "./Login"
+
+// firebase 
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import base , {firebaseApp} from '../../../base'
 
 
 class Admin extends Component {
+    state={
+        uid: null,
+        chef:null
+    }
+
+    componentDidMount () {
+        firebase.auth().onAuthStateChanged(user => {
+          if (user) {
+            this.handleAuth({ user })
+          }
+        })
+    }
+
+    handleAuth=  async authData =>{
+        const box =await base.fetch(this.props.pseudo, { context: this })
+        if (!box.chef) {
+            await base.post(`${this.props.pseudo}/chef`, {
+              data: authData.user.uid
+            })
+        }
+        this.setState({
+            uid: authData.user.uid,
+            chef: box.chef || authData.user.uid
+        })
+    }
+
+    //ici firebase tu te connecte avec ignInWithPopup
+    //on lui a passer le nom de provider 'facebook'
+    authenticate=()=>{
+        const authProvider = new firebase.auth.FacebookAuthProvider()
+        firebaseApp
+        .auth()
+        .signInWithPopup(authProvider)
+        .then(this.handleAuth)
+    }
+
+    logout = async () => {
+        console.log('Déconnexion')
+        await firebase.auth().signOut()
+        this.setState({ uid: null })
+      }
+
 
     render (){
-
         const {recettes, ajouterRecette, majRecette, supprimerRecette, chargerExemple}= this.props
+        const logout = <button onClick={this.logout}>Déconnexion</button>
+
+        //si l'utilisateur n'est pas connecté
+        if(! this.state.uid){
+            return <Login authenticate={this.authenticate} ></Login>
+        }
+        if (this.state.uid !== this.state.chef) {
+            return (
+              <div className='identifier'>
+                <p>Tu n'es pas le chef de cette boîte !</p>
+                {logout}
+              </div>
+            )
+        }
 
         return (
             <div className='cards'>
-                  <AjouterRecette ajouterRecette={ajouterRecette}/>
+                <AjouterRecette ajouterRecette={ajouterRecette}/>
                 {
                     Object.keys(recettes)
                         .map(key => <AdminForm
@@ -23,8 +84,8 @@ class Admin extends Component {
                         recettes={recettes} />)
                 }
                 <footer>
-                  
-                    <button onClick={chargerExemple}>Afficher</button>
+                    {logout}
+                    <button onClick={chargerExemple}>Remplir</button>
                 </footer>
             </div>
 

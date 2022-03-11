@@ -23,9 +23,7 @@ class  AjouterRecette extends Component {
         const recette = { ...this.state}
         this.props.ajouterRecette(recette)
         // Reset => on va boucler autour de notre formulaire puis on met le state a Zéro
-        Object.keys(recette).forEach(item => {
-            recette[item]=""
-        })
+        Object.keys(recette).forEach(item => {recette[item]=""})
         this.setState({...recette})
     }
 

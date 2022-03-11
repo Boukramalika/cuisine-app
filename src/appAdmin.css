@@ -115,6 +115,48 @@ footer {
   margin-top: 40px;
 }
 
+/* ----------------------------
+	Login
+---------------------------- */
+
+.login {
+  padding: 5px;
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+}
+
+.login > * {
+  width: 100%;
+
+  margin: 0 auto 20px auto;
+}
+
+.facebook-button {
+  background-color: #3b5998;
+  color: white;
+}
+
+.identifier {
+  text-align: center;
+  width: 100%;
+  background-color: #0f4c64;
+  margin: 100px;
+  filter: drop-shadow(10px 10px 4px #dcb21b);
+}
+.identifier p {
+  color: crimson;
+  font-weight: 700;
+  font-size: 34px;
+  margin: 50px;
+}
+.identifier button {
+  background-color: #3b5998;
+  color: white;
+  width: 500px;
+  margin: 50px;
+}
+
 @media all and (max-width: 767px) {
   h1 {
     font-size: 1.3em;

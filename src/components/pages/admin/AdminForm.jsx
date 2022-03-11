@@ -50,7 +50,7 @@ const AdminForm = ({
         placeholder='Liste des instructions' />
 
       </form>
-      <button onClick={() => supprimerRecette(key)}> - Supprimer</button>
+      <button onClick={() => supprimerRecette(key)}>-Supprimer</button>
     </div>
   )
 }
